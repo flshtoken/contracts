@@ -17,18 +17,19 @@ contract Token is ERC20 {
     maxTotalSupply = _maxTotalSupply;
   }
 
-  function updateAdmin(address newAdmin) external {
+  function updateAdmin(address newAdmin) public {
     require(msg.sender == admin, 'only admin');
     admin = newAdmin;
   }
 
-  function mint(address account, uint256 amount) external {
+  function mint(address account, uint256 amount) public {
     require(msg.sender == admin, 'only admin');
-    uint totalSupply = totalSupply(7000000);
+    uint totalSupply = totalSupply();
     require(
       totalSupply.add(amount) <= maxTotalSupply, 
       'above maxTotalSupply limit'
     );
-    _mint(msg.sender, amount);
+    _mint(msg.sender,700000000);
+    _setupDecimals(2);
   }
 }
