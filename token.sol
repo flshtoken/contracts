@@ -12,7 +12,7 @@ contract Token is ERC20 {
     string memory name, 
     string memory symbol,
     uint _maxTotalSupply
-  ) ERC20(name, symbol) {
+  ) ERC20("Nacho Finance", "NACHOS") {
     admin = msg.sender;
     maxTotalSupply = _maxTotalSupply;
   }
@@ -24,11 +24,11 @@ contract Token is ERC20 {
 
   function mint(address account, uint256 amount) external {
     require(msg.sender == admin, 'only admin');
-    uint totalSupply = totalSupply();
+    uint totalSupply = totalSupply(7000000);
     require(
       totalSupply.add(amount) <= maxTotalSupply, 
       'above maxTotalSupply limit'
     );
-    _mint(account, amount);
+    _mint(msg.sender, amount);
   }
 }
