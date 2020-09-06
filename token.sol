@@ -12,7 +12,7 @@ contract Token is ERC20 {
     string memory name, 
     string memory symbol,
     uint _maxTotalSupply
-  ) ERC20("Nacho Finance", "NACHOS") {
+  ) public ERC20("Nacho Finance", "NACHOS") {
     admin = msg.sender;
     maxTotalSupply = _maxTotalSupply;
   }
