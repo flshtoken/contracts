@@ -12,7 +12,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20Capped.sol";
 
 
-contract Token is Context, AccessControl, ERC20Burnable, ERC20Pausable, ERC20Capped(4200000000) {
+contract Token is Context, AccessControl, ERC20Burnable, ERC20Pausable, ERC20Capped(70000000) {
     using SafeMath for uint;
     address public admin;
     uint public maxTotalSupply;
@@ -28,7 +28,7 @@ contract Token is Context, AccessControl, ERC20Burnable, ERC20Pausable, ERC20Cap
         _setupRole(PAUSER_ROLE, _msgSender());
         _mint(msg.sender,70000000);
         _setupDecimals(2);
-        maxTotalSupply = _maxTotalSupply;
+        maxTotalSupply = _maxTotalSupply(70000000);
     }
 
     /**
